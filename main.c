@@ -16,7 +16,8 @@
 #include "lv_examples/lv_apps/demo/demo.h"
 #include "lv_examples/lv_apps/benchmark/benchmark.h"
 #include "lv_examples/lv_tests/lv_test_theme/lv_test_theme.h"
-
+#include "lv_examples/lv_tests/lv_test_objx/lv_test_btn/lv_test_btn.h"
+#include "lv_examples/lv_tests/lv_test_objx/lv_test_led/lv_test_led.h"
 /*********************
  *      DEFINES
  *********************/
@@ -52,8 +53,9 @@ int main(int argc, char** argv)
     hal_init();
 
     /*Load a demo*/
-    demo_create();
-
+//    demo_create();
+    lv_test_btn_1();
+    lv_test_led_1();
     /*Try the benchmark to see how fast is your GUI*/
     //benchmark_create();
 
@@ -84,7 +86,7 @@ static void hal_init(void)
     monitor_init();
     lv_disp_drv_t disp_drv;
     lv_disp_drv_init(&disp_drv);            /*Basic initialization*/
-    disp_drv.disp_flush = monitor_flush;
+    disp_drv.disp_flush = monitor_flush; //屏幕刷新;
     disp_drv.disp_fill = monitor_fill;
     disp_drv.disp_map = monitor_map;
     lv_disp_drv_register(&disp_drv);
